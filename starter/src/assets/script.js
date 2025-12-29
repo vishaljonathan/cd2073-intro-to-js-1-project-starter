@@ -16,7 +16,7 @@ const product1 = {
   price: 5,
   quantity: 0,
   productId: 100,
-  image: ".images/cherry.jpg"
+  image: "./images/cherry.jpg"
 };
 
 const product2 = {
@@ -24,7 +24,7 @@ const product2 = {
   price: 7,
   quantity: 0,
   productId: 101,
-  image: ".images/orange.jpg"
+  image: "./images/orange.jpg"
 };
 
 const product3 = {
@@ -32,7 +32,7 @@ const product3 = {
   price: 6,
   quantity: 0,
   productId: 102,
-  image: ".images/strawberry.jpg"
+  image: "./images/strawberry.jpg"
 };
 
 products.push(product1,product2,product3);
@@ -167,7 +167,13 @@ function emptyCart() {
 function pay(amount) {
   totalPaid += amount;
 
-  return totalPaid - cartTotal();
+  const remainingBalance = totalPaid - cartTotal();
+
+  if (remainingBalance >= 0) {
+    totalPaid = 0;
+  }
+
+  return remainingBalance;
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
