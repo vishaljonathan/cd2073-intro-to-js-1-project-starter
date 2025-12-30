@@ -165,8 +165,10 @@ function pay(amount) {
 
   const remainingBalance = totalPaid - cartTotal();
 
+  // Checkout complete → reset and empty the cart
   if (remainingBalance >= 0) {
     totalPaid = 0;
+    emptyCart();
   }
 
   return remainingBalance;
